@@ -1,4 +1,6 @@
-public class Illuminator extends Entry{
+package entries;
+
+public class Illuminator extends Entry {
     private boolean isBroken = false;
 
     public Illuminator(String name, boolean opened) {

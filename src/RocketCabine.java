@@ -1,3 +1,5 @@
+import entries.Illuminator;
+
 import java.util.ArrayList;
 
 public class RocketCabine extends Place {

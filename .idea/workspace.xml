@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20dc7e62-35f9-4aeb-8932-4a3f760ca9d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/entries/LockChamberDoor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AreaAroundCabine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AreaAroundCabine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entries/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HouseDoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entries/HouseDoor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Illuminator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entries/Illuminator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LockChamberDoor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Place.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RocketCabine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RocketCabine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interactions/input/LockChamberDoor.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577652362207</updated>
-      <workItem from="1577652371013" duration="14957000" />
+      <workItem from="1577652371013" duration="21612000" />
     </task>
     <servers />
   </component>

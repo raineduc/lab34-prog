@@ -1,7 +1,9 @@
+package entries;
+
 public abstract class Entry {
-    private boolean opened;
-    private Place place;
-    private String name;
+    protected boolean opened;
+    protected Place place;
+    protected String name;
 
     public Entry(String name, boolean opened) {
         this.name = name;
