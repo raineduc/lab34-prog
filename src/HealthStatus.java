@@ -1,0 +1,5 @@
+enum HealthStatus {
+    UNHARMED,
+    INJURED
+}
+

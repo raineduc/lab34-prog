@@ -1,0 +1,4 @@
+enum RocketPosition {
+    NORMAL,
+    FLIPPED
+}
