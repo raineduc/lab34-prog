@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Rocket {
+public class Rocket implements Visibility {
     private RocketTail tail = new RocketTail();
     private RocketCabine cabine = new RocketCabine();
     private Engine engine = new Engine();
@@ -26,4 +26,13 @@ public class Rocket {
         return this.position;
     }
 
+    @Override
+    public String getVisibilityInfo() {
+        String visibleInfo;
+        if (this.position == position.FLIPPED) {
+            return "ракету, перевернутую набок";
+        } else {
+            return "ракету";
+        }
+    }
 }

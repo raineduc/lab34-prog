@@ -17,10 +17,10 @@ public class Hangar implements Visibility{
                 visibleInfo = "расчищенное место";
                 break;
             case CRASHED:
-                visibleInfo = "груду обломков";
+                visibleInfo = "груду дымящихся развалин";
                 break;
             case BURNING:
-                visibleInfo = "поднимающийся столб пламени";
+                visibleInfo = "поднимающийся кверху столб пламени и дыма";
                 break;
             default:
                 visibleInfo = "ангар";
