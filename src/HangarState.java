@@ -1,5 +1,6 @@
 public enum HangarState {
     NORMAL,
     CRASHED,
-    CLEARED
+    CLEARED,
+    BURNING
 }
