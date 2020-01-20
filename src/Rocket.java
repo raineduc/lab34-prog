@@ -29,7 +29,7 @@ public class Rocket implements Visibility {
     @Override
     public String getVisibilityInfo() {
         String visibleInfo;
-        if (this.position == position.FLIPPED) {
+        if (this.position == RocketPosition.FLIPPED) {
             return "ракету, перевернутую набок";
         } else {
             return "ракету";
