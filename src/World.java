@@ -9,7 +9,6 @@ public class World {
     }
 
     public void startAction() {
-        MessageService msg = new ConsoleMessageService();
-        Rocket rocket = new Rocket();
+
     }
 }
