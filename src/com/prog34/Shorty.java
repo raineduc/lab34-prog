@@ -6,6 +6,8 @@ import com.prog34.Visibility;
 import com.prog34.entries.HouseDoor;
 import com.prog34.lib.messageservice.MessageService;
 import com.prog34.places.Place;
+import com.prog34.entries.Entry;
+
 public class Shorty {
     protected String name;
     protected HealthStatus health;
@@ -28,8 +30,17 @@ public class Shorty {
         MessageService.showMessageWithNewLineEnding(this.name + " спит в " + this.currentPlace.getName() + "е");
     }
 
-    public void goToPlace(Place place) {
-        // СРОЧНО РЕАЛИЗОВАТЬ ВОЗМОЖНОСТЬ ПЕРЕХОДОВ!!!
+    public void goToPlace(Entry entry) {
+        if (entry.IsEntryOpened()) {
+            if (currentPlace.getEntries().contains(entry)) {
+                this.currentPlace = entry.getPlace();
+                MessageService.showMessageWithNewLineEnding(name + " переходит в локацию " + currentPlace.getName());
+            } else {
+                MessageService.showMessageWithNewLineEnding("Переход невозможен :(");
+            }
+        } else {
+            MessageService.showMessageWithNewLineEnding(name + " пытается перейти в локацию " + currentPlace.getName() + ", но проход заблокирован :(");
+        }
     }
 
     public void lookAt(Visibility object) {
