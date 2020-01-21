@@ -1,5 +1,5 @@
 package com.prog34.entries;
-import com.prog34.entries.places.Place;
+import com.prog34.places.Place;
 
 public abstract class Entry {
     protected boolean opened;
