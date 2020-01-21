@@ -1,4 +1,3 @@
-import lib.messageservice.ConsoleMessageService;
 import lib.messageservice.MessageService;
 
 public class World {
@@ -9,7 +8,6 @@ public class World {
     }
 
     public void startAction() {
-        MessageService msg = new ConsoleMessageService();
         Rocket rocket = new Rocket();
     }
 }

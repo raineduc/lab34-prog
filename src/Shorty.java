@@ -5,11 +5,9 @@ public class Shorty {
     protected HealthStatus health;
     protected Place currentPlace;
     protected Cover cover;
-    protected MessageService msg;
 
-    public Shorty(String name, MessageService msg) {
+    public Shorty(String name) {
         this.name = name;
-        this.msg = msg;
     }
 
     public void heal() {
@@ -26,7 +24,7 @@ public class Shorty {
     }
 
     public void lookAt(Visibility object) {
-        this.msg.showMessageWithNewLineEnding(this.name + " увидел " + object.getVisibilityInfo());
+        MessageService.showMessageWithNewLineEnding(this.name + " увидел " + object.getVisibilityInfo());
     }
 
     public void takeCover(Cover cover) {
