@@ -1,6 +1,10 @@
+import entries.Entry;
 import entries.HouseDoor;
 import places.Place;
 
 public class House extends Place {
-    HouseDoor door = new HouseDoor("дверь дома", true);
+    public House () {
+        HouseDoor door = new HouseDoor("дверь дома", true);
+        this.addEntry(door);
+    }
 }
