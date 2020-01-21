@@ -1,5 +1,6 @@
 package com.prog34;
 
+import com.prog34.entries.HouseDoor;
 import com.prog34.places.House;
 import com.prog34.places.Yard;
 
@@ -18,7 +19,8 @@ public class World {
         Hangar hangar = new Hangar(); // поместить как-то в городок
         Rocket rocket = new Rocket(); // поместить (!РЯДОМ С АНГАРОМ???) как-то в городок
         House house = new House("дом"); // поместить как-то в городок
-        Yard yard = new Yard("двор"); // поместить (!РЯДОМ С ДОМОМ???) как-то в городок
+        Yard yard = new Yard("двор");
+        HouseDoor houseDoor = new HouseDoor(house, yard);
 
         Shorty zvezdochkin = new Shorty("Звёздочкин", house);
         Shorty znaika = new Shorty("Знайка", house);
@@ -29,7 +31,7 @@ public class World {
         hangar.crash(); // взрывается ангар!
         // Звездочкин оказывается на полу
         znaika.takeCover(blanket); // Знайка укутывается в одеяло
-        znaika.goToPlace(yard); // Реализовать перемещение через энтрипоинты между плэйсами
+        znaika.goToPlace(houseDoor); // Реализовать перемещение через энтрипоинты между плэйсами
 
     }
 }

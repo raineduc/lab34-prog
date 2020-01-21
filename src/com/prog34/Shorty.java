@@ -29,15 +29,17 @@ public class Shorty {
     }
 
     public void goToPlace(Entry entry) {
-        if (entry.IsEntryOpened()) {
-            if (currentPlace.getEntries().contains(entry)) {
-                this.currentPlace = entry.getPlace();
-                MessageService.showMessageWithNewLineEnding(name + " переходит в локацию " + currentPlace.getName());
+        Place destination = (entry.getPlace1() == currentPlace) ? entry.getPlace1() : entry.getPlace2();
+        Place departure = (entry.getPlace1() == destination) ? entry.getPlace2() : entry.getPlace1();
+        if (currentPlace.getEntries().contains(entry)) {
+            if (entry.IsEntryOpened()) {
+                this.currentPlace = destination;
+                MessageService.showMessageWithNewLineEnding(name + " переходит в локацию " + destination.getName());
             } else {
                 MessageService.showMessageWithNewLineEnding("Переход невозможен :(");
             }
         } else {
-            MessageService.showMessageWithNewLineEnding(name + " пытается перейти в локацию " + currentPlace.getName() + ", но проход заблокирован :(");
+            MessageService.showMessageWithNewLineEnding(name + " пытается перейти в локацию " + destination.getName() + ", но проход заблокирован :(");
         }
     }
 
