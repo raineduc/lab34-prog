@@ -1,13 +1,14 @@
+package places;
+
 import entries.Illuminator;
-import places.Place;
 import java.util.ArrayList;
 
 public class RocketCabine extends Place {
-  ArrayList<Illuminator> illuminators = new ArrayList<>(4);
+  protected ArrayList<Illuminator> illuminators = new ArrayList<>(4);
 
   public RocketCabine() {
     for (int i = 0; i < 4; i++)
-      illuminators.add(new Illuminator("иллюминатор", false));
+      illuminators.add(new Illuminator("иллюминатор", false, this));
   }
 
   public void pushIlluminatorsToEntries() {
