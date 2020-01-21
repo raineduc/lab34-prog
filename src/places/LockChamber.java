@@ -13,6 +13,7 @@ public class LockChamber extends Place {
         super();
         this.openingButton.connect(this.openingMotor);
         this.door = new LockChamberDoor(this);
+        this.addEntry(this.door);
         this.openingMotor.connect(this.door);
     }
     public void pushButton() {

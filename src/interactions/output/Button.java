@@ -2,7 +2,6 @@ package interactions.output;
 
 import interactions.OutputInteractionElement;
 import interactions.states.ToggleState;
-import lib.observer.EventManager;
 
 public class Button extends OutputInteractionElement<ToggleState> {
   protected ToggleState state = ToggleState.OFF;
