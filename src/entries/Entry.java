@@ -1,4 +1,5 @@
 package entries;
+import places.Place;
 
 public abstract class Entry {
     protected boolean opened;
