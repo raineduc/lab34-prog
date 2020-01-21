@@ -29,5 +29,6 @@ public class Shorty {
 
     public void takeCover(Cover cover) {
         this.cover = cover;
+        MessageService.showMessageWithNewLineEnding(this.name + " закутался в " + cover.getCoverName());
     }
 }

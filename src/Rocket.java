@@ -1,6 +1,7 @@
 import interactions.OutputInteractionElement;
 import places.LockChamber;
 import places.RocketCabine;
+import lib.messageservice.MessageService;
 
 public class Rocket extends OutputInteractionElement<RocketPosition> implements Visibility {
     private RocketTail tail = new RocketTail();
@@ -10,10 +11,12 @@ public class Rocket extends OutputInteractionElement<RocketPosition> implements 
     private RocketPosition position = RocketPosition.NORMAL;
 
     public void explode() {
+        MessageService.showMessageWithNewLineEnding("Ракета взорвалась!");
+        position = RocketPosition.FLIPPED;
+        MessageService.showMessageWithNewLineEnding("Ракета перевернулась набок!");
         tail.brokeOff();
         engine.damage();
         cabine.brokeIlluminators();
-        position = RocketPosition.FLIPPED;
         this.notify(position);
     }
 
