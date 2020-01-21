@@ -1,5 +1,5 @@
 import lib.messageservice.MessageService;
-
+import places.Place;
 public class Shorty {
     protected String name;
     protected HealthStatus health;

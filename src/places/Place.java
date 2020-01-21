@@ -1,3 +1,5 @@
+package places;
+
 import entries.Entry;
 
 import java.util.ArrayList;
