@@ -1,6 +1,3 @@
-import lib.messageservice.ConsoleMessageService;
-import lib.messageservice.MessageService;
-
 public class World {
     public DayPhase dayPhase = DayPhase.NIGHT;
 
