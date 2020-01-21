@@ -1,7 +1,8 @@
+import interactions.OutputInteractionElement;
 import places.LockChamber;
 import places.RocketCabine;
 
-public class Rocket implements Visibility {
+public class Rocket extends OutputInteractionElement<RocketPosition> implements Visibility {
     private RocketTail tail = new RocketTail();
     private RocketCabine cabine = new RocketCabine();
     private Engine engine = new Engine();
@@ -13,6 +14,7 @@ public class Rocket implements Visibility {
         engine.damage();
         cabine.brokeIlluminators();
         position = RocketPosition.FLIPPED;
+        this.notify(position);
     }
 
     public void openLockChamberDoorBy(Shorty shorty) {

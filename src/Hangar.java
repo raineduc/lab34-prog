@@ -1,31 +1,40 @@
-public class Hangar implements Visibility{
-    private HangarState state = HangarState.NORMAL;
+import interactions.InputInteractionElement;
 
-    public void crash() {
-        this.state = HangarState.CRASHED;
-    }
+public class Hangar implements Visibility, InputInteractionElement<RocketPosition> {
+  private HangarState state = HangarState.NORMAL;
 
-    public void clearBy(Shorty ... shorties) {
-        this.state = HangarState.CLEARED;
-    }
+  public void crash() {
+    this.state = HangarState.CRASHED;
+  }
 
-    @Override
-    public String getVisibilityInfo() {
-        String visibleInfo;
-        switch (this.state) {
-            case CLEARED:
-                visibleInfo = "расчищенное место";
-                break;
-            case CRASHED:
-                visibleInfo = "груду дымящихся развалин";
-                break;
-            case BURNING:
-                visibleInfo = "поднимающийся кверху столб пламени и дыма";
-                break;
-            default:
-                visibleInfo = "ангар";
-                break;
-        }
-        return visibleInfo;
+  public void clearBy(Shorty[] shorties) {
+    this.state = HangarState.CLEARED;
+  }
+
+  @Override
+  public String getVisibilityInfo() {
+    String visibleInfo;
+    switch (this.state) {
+      case CLEARED:
+        visibleInfo = "расчищенное место";
+        break;
+      case CRASHED:
+        visibleInfo = "груду дымящихся развалин";
+        break;
+      case BURNING:
+        visibleInfo = "поднимающийся кверху столб пламени и дыма";
+        break;
+      default:
+        visibleInfo = "ангар";
+        break;
     }
+    return visibleInfo;
+  }
+
+  @Override
+  public void react(RocketPosition state) {
+    if (state == RocketPosition.FLIPPED) {
+      this.crash();
+    }
+  }
 }
