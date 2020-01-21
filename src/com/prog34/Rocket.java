@@ -27,8 +27,8 @@ public class Rocket extends OutputInteractionElement<RocketPosition> implements 
       lockChamber.pushButton();
     }
 
-    public void openLockChamberDoorBy(ShortyEngineer shortyEngineer) {
-
+    public void fixLockChamberDoorBy(ShortyEngineer shortyEngineer) {
+      this.lockChamber.fixMotorByEngineer(shortyEngineer);
     }
 
     public RocketPosition getPosition() {

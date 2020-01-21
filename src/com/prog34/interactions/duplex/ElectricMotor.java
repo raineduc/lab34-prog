@@ -1,8 +1,10 @@
 package com.prog34.interactions.duplex;
 
+import com.prog34.ShortyEngineer;
 import com.prog34.interactions.DuplexInteractionElement;
 import com.prog34.interactions.states.ElectricMotorState;
 import com.prog34.interactions.states.ToggleState;
+import com.prog34.lib.messageservice.MessageService;
 
 public class ElectricMotor extends DuplexInteractionElement<ToggleState, ToggleState> {
   protected String stateMessage = "Мотор остановлен";
@@ -30,5 +32,10 @@ public class ElectricMotor extends DuplexInteractionElement<ToggleState, ToggleS
         this.notify(ToggleState.OFF);
       }
     }
+  }
+
+  public void fixByEngineer(ShortyEngineer shorty) {
+    this.state = ElectricMotorState.STOPPED;
+    MessageService.showMessageWithNewLineEnding(shorty.getName() + " починил электромотор");
   }
 }
