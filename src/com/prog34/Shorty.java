@@ -11,6 +11,7 @@ public class Shorty {
     protected HealthStatus health;
     protected Place currentPlace;
     protected Cover cover;
+    protected boolean sleep = false;
 
     public Shorty(String name, Place currentPlace) {
         this.name = name;
@@ -23,6 +24,7 @@ public class Shorty {
     }
 
     public void sleepIn(Place place) {
+        this.sleep = true;
         MessageService.showMessageWithNewLineEnding(this.name + " спит в " + this.currentPlace.getName() + "е");
     }
 
