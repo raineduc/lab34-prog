@@ -1,5 +1,0 @@
-enum HealthStatus {
-    UNHARMED,
-    INJURED
-}
-

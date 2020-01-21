@@ -1,4 +1,0 @@
-enum RocketPosition {
-    NORMAL,
-    FLIPPED
-}
