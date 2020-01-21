@@ -1,5 +1,6 @@
 import places.LockChamber;
 import places.RocketCabine;
+import lib.messageservice.MessageService;
 
 public class Rocket implements Visibility {
     private RocketTail tail = new RocketTail();
@@ -9,10 +10,12 @@ public class Rocket implements Visibility {
     private RocketPosition position = RocketPosition.NORMAL;
 
     public void explode() {
+        MessageService.showMessageWithNewLineEnding("Ракета взорвалась!");
+        position = RocketPosition.FLIPPED;
+        MessageService.showMessageWithNewLineEnding("Ракета перевернулась набок!");
         tail.brokeOff();
         engine.damage();
         cabine.brokeIlluminators();
-        position = RocketPosition.FLIPPED;
     }
 
     public void openLockChamberDoorBy(Shorty shorty) {
