@@ -6,9 +6,10 @@ public abstract class Entry {
     protected Place place;
     protected String name;
 
-    public Entry(String name, boolean opened) {
+    public Entry(String name, boolean opened, Place place) {
         this.name = name;
         this.opened = opened;
+        this.place = place;
     }
 
     public Place getPlace() {

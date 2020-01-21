@@ -3,20 +3,18 @@ package entries;
 import interactions.InputInteractionElement;
 import interactions.states.ToggleState;
 import lib.messageservice.MessageService;
+import places.Place;
 
 public class LockChamberDoor extends Entry implements InputInteractionElement<ToggleState> {
-  protected MessageService messageService;
-
-  public LockChamberDoor(MessageService mes) {
-    super("Шлюзовая камера", false);
-    this.messageService = mes;
+  public LockChamberDoor(Place place) {
+    super("Шлюзовая камера", false, place);
   }
 
   public void react(ToggleState state) {
     if (state == ToggleState.ON) {
-      messageService.showMessage("Дверь открыта");
+      MessageService.showMessage("Дверь открыта");
     } else {
-      messageService.showMessage("Дверь закрыта");
+      MessageService.showMessage("Дверь закрыта");
     }
   }
 }
