@@ -1,7 +1,6 @@
 package lib.messageservice;
-import lib.messageservice.MessageService;
 
-public class ConsoleMessageService implements MessageService {
+public class ConsoleMessageStrategy implements MessageStrategy {
   public void showMessage(String mes) {
     System.out.print(mes);
   }
