@@ -1,3 +1,6 @@
+import lib.messageservice.ConsoleMessageService;
+import lib.messageservice.MessageService;
+
 public class World {
     public DayPhase dayPhase = DayPhase.NIGHT;
 
@@ -6,9 +9,7 @@ public class World {
     }
 
     public void startAction() {
-        // не реализовано
-
+        MessageService msg = new ConsoleMessageService();
         Rocket rocket = new Rocket();
-
     }
 }

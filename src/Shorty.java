@@ -25,8 +25,8 @@ public class Shorty {
 
     }
 
-    public void lookAt(Visibility object, Shorty shorty){
-        this.msg.showMessage(this.name + "увидел" + object.getVisibilityInfo());
+    public void lookAt(Visibility object) {
+        this.msg.showMessageWithNewLineEnding(this.name + " увидел " + object.getVisibilityInfo());
     }
 
     public void takeCover(Cover cover) {
