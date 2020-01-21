@@ -11,7 +11,7 @@ public abstract class Place {
         this.entries.add(entry);
     }
     public void removeEntry(Entry entry) {
-
+        this.entries.remove(entry);
     }
     public ArrayList<Entry> getEntries() {
         return entries;

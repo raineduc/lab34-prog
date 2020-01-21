@@ -1,4 +1,4 @@
-import places.Place;
+package places;
 
 public class Yard extends Place {
 }
