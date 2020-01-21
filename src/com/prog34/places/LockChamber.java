@@ -9,8 +9,8 @@ public class LockChamber extends Place {
     protected ElectricMotor openingMotor = new ElectricMotor();
     protected LockChamberDoor door;
 
-    public LockChamber() {
-        super();
+    public LockChamber(String name) {
+        super(name);
         this.openingButton.connect(this.openingMotor);
         this.door = new LockChamberDoor(this);
         this.addEntry(this.door);

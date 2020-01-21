@@ -3,6 +3,7 @@ package com.prog34;
 import com.prog34.Cover;
 import com.prog34.HealthStatus;
 import com.prog34.Visibility;
+import com.prog34.entries.HouseDoor;
 import com.prog34.lib.messageservice.MessageService;
 import com.prog34.places.Place;
 public class Shorty {
@@ -11,8 +12,9 @@ public class Shorty {
     protected Place currentPlace;
     protected Cover cover;
 
-    public Shorty(String name) {
+    public Shorty(String name, Place currentPlace) {
         this.name = name;
+        this.currentPlace = currentPlace;
     }
 
     public void heal() {
@@ -21,11 +23,11 @@ public class Shorty {
     }
 
     public void sleepIn(Place place) {
-
+        MessageService.showMessageWithNewLineEnding(this.name + " спит в " + this.currentPlace.getName() + "е");
     }
 
     public void goToPlace(Place place) {
-
+        // СРОЧНО РЕАЛИЗОВАТЬ ВОЗМОЖНОСТЬ ПЕРЕХОДОВ!!!
     }
 
     public void lookAt(Visibility object) {

@@ -8,7 +8,8 @@ import java.util.ArrayList;
 public class RocketCabine extends Place {
     protected ArrayList<Illuminator> illuminators = new ArrayList<>(4);
 
-    public RocketCabine() {
+    public RocketCabine(String name) {
+        super(name);
         for (int i = 0; i < 4; i++)
             illuminators.add(new Illuminator("иллюминатор", false, this));
     }
