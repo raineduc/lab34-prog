@@ -8,9 +8,9 @@ import com.prog34.places.RocketCabine;
 
 public class Rocket extends OutputInteractionElement<RocketPosition> implements Visibility {
     private RocketTail tail = new RocketTail();
-    private RocketCabine cabine = new RocketCabine();
+    private RocketCabine cabine = new RocketCabine("кабина");
     private Engine engine = new Engine();
-    private LockChamber lockChamber = new LockChamber();
+    private LockChamber lockChamber = new LockChamber("шлюзовая камера");
     private RocketPosition position = RocketPosition.NORMAL;
 
     public void explode() {

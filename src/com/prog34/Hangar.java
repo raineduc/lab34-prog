@@ -1,12 +1,14 @@
 package com.prog34;
 
 import com.prog34.interactions.InputInteractionElement;
+import com.prog34.lib.messageservice.MessageService;
 
 public class Hangar implements Visibility, InputInteractionElement<RocketPosition> {
   private HangarState state = HangarState.NORMAL;
 
   public void crash() {
     this.state = HangarState.CRASHED;
+    MessageService.showMessageWithNewLineEnding("Взорвался ангар!");
   }
 
   public void clearBy(Shorty[] shorties) {

@@ -1,9 +1,9 @@
 package com.prog34.places;
 
-import com.prog34.entries.Entry;
-
 public class AreaAroundCabine extends Place {
-    public AreaAroundCabine(Entry entry) {
-        this.addEntry(entry);
+    public AreaAroundCabine(String name) {
+        super(name);
+        // Переход в кабину? Необходимо добавить ссылку на наш экземпляр кабины
+        // и реализовать переход
     }
 }
