@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import places.LockChamber;
+import places.RocketCabine;
 
 public class Rocket implements Visibility {
     private RocketTail tail = new RocketTail();
