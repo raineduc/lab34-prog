@@ -6,8 +6,8 @@ import com.prog34.lib.messageservice.MessageService;
 import com.prog34.places.Place;
 
 public class LockChamberDoor extends Entry implements InputInteractionElement<ToggleState> {
-  public LockChamberDoor(Place place) {
-    super("Шлюзовая камера", false, place);
+  public LockChamberDoor(Place place1, Place place2) {
+    super("Шлюзовая камера", false, place1, place2);
   }
 
   public void react(ToggleState state) {
