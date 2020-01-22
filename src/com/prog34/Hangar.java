@@ -2,16 +2,18 @@ package com.prog34;
 
 import com.prog34.interactions.InputInteractionElement;
 import com.prog34.lib.messageservice.MessageService;
+import com.prog34.places.AreaAroundHangar;
 
 public class Hangar implements Visibility, InputInteractionElement<RocketPosition> {
   private HangarState state = HangarState.NORMAL;
+  private AreaAroundHangar areaAroundHangar = new AreaAroundHangar(this);
 
   public void crash() {
     this.state = HangarState.CRASHED;
     MessageService.showMessageWithNewLineEnding("Взорвался ангар!");
   }
 
-  public void clearBy(Shorty[] shorties) {
+  public void clear() {
     this.state = HangarState.CLEARED;
   }
 
@@ -33,6 +35,10 @@ public class Hangar implements Visibility, InputInteractionElement<RocketPositio
         break;
     }
     return visibleInfo;
+  }
+
+  public AreaAroundHangar getAreaAroundHangar() {
+    return areaAroundHangar;
   }
 
   @Override
