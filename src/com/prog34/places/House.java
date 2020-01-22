@@ -4,9 +4,13 @@ import com.prog34.entries.HouseDoor;
 
 public class House extends Place {
     protected HouseDoor door;
-    public House (String name, Yard yard) {
+
+    public House (String name) {
         super(name);
-        door = new HouseDoor("дверь дома", true, yard);
+    }
+
+    public void addHouseDoor(HouseDoor door) {
         this.addEntry(door);
+        this.door = door;
     }
 }
