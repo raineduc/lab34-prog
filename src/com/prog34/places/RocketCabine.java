@@ -11,7 +11,7 @@ public class RocketCabine extends Place {
     protected ArrayList<Illuminator> illuminators = new ArrayList<>(4);
     protected ElectricMotor openingMotor = new ElectricMotor();
 
-    public RocketCabine(String name, Place place2) {
+    public RocketCabine(String name) {
         super(name);
     }
 

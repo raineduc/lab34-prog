@@ -20,7 +20,7 @@ public class AreaAroundCabine extends Place {
         cabine.getMotor().connect(this.door);
     }
 
-    public void pushButton() {
+    public void openLockChamberDoor() {
         this.openingButton.push();
     }
 }

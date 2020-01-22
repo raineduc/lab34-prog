@@ -7,6 +7,7 @@ import com.prog34.entries.HouseDoor;
 import com.prog34.lib.messageservice.MessageService;
 import com.prog34.places.Place;
 import com.prog34.entries.Entry;
+import com.prog34.surfaces.Surface;
 
 public class Shorty {
     protected String name;
@@ -26,6 +27,10 @@ public class Shorty {
 
     public void sleepIn(Place place) {
         MessageService.showMessageWithNewLineEnding(this.name + " спит в " + this.currentPlace.getName() + "е");
+    }
+
+    public void fallIn(Surface surface) {
+        MessageService.showMessageWithNewLineEnding(name + " падает на " + surface.getName());
     }
 
     public void goToPlace(Entry entry) {
