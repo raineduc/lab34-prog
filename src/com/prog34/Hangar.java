@@ -9,7 +9,7 @@ public class Hangar implements Visibility, InputInteractionElement<RocketPositio
   private AreaAroundHangar areaAroundHangar = new AreaAroundHangar(this);
 
   public void crash() {
-    this.state = HangarState.CRASHED;
+    this.state = HangarState.BURNING;
     MessageService.showMessageWithNewLineEnding("Взорвался ангар!");
   }
 

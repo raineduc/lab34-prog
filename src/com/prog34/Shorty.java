@@ -1,9 +1,5 @@
 package com.prog34;
 
-import com.prog34.Cover;
-import com.prog34.HealthStatus;
-import com.prog34.Visibility;
-import com.prog34.entries.HouseDoor;
 import com.prog34.lib.messageservice.MessageService;
 import com.prog34.places.Place;
 import com.prog34.entries.Entry;
@@ -15,6 +11,7 @@ public class Shorty {
     protected Place currentPlace;
     protected Cover cover;
     protected boolean sleep = false;
+    protected Cargo cargo;
 
     public Shorty(String name, Place currentPlace) {
         this.name = name;
@@ -44,14 +41,17 @@ public class Shorty {
 
     public void goToPlace(Entry entry) {
 
-        Place destination = (entry.getPlace1() == currentPlace) ? entry.getPlace1() : entry.getPlace2();
+        Place destination = (entry.getPlace1() == currentPlace) ? entry.getPlace2() : entry.getPlace1();
         Place departure = (entry.getPlace1() == destination) ? entry.getPlace2() : entry.getPlace1();
         if (currentPlace.getEntries().contains(entry)) {
             if (entry.IsEntryOpened()) {
                 this.currentPlace = destination;
                 MessageService.showMessageWithNewLineEnding(name + " переходит в локацию " + destination.getName());
+                if (this.cargo != null) {
+                    MessageService.showMessageWithNewLineEnding(name + " также проносит с собой " + cargo.getName());
+                }
             } else {
-                MessageService.showMessageWithNewLineEnding(name + " пытается перейти в локацию " + currentPlace.getName() + ", но проход заблокирован :(");
+                MessageService.showMessageWithNewLineEnding(name + " пытается перейти в локацию " + destination.getName() + ", но проход заблокирован :(");
             }
         } else {
             MessageService.showMessageWithNewLineEnding("Переход невозможен :(");
@@ -65,6 +65,18 @@ public class Shorty {
     public void takeCover(Cover cover) {
         this.cover = cover;
         MessageService.showMessageWithNewLineEnding(this.name + " закутался в " + cover.getCoverName());
+    }
+
+    public void takeCargo(Cargo cargo) {
+        this.cargo = cargo;
+        MessageService.showMessageWithNewLineEnding(name + " взял с собой " + cargo.getName());
+    }
+
+    public Cargo dropCargo() {
+        Cargo savedCargo = cargo;
+        MessageService.showMessageWithNewLineEnding(name + " сбрасывает " + cargo.getName());
+        this.cargo = null;
+        return savedCargo;
     }
 
     public Place getCurrentPlace() {

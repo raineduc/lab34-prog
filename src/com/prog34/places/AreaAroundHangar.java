@@ -3,6 +3,7 @@ import com.prog34.Hangar;
 import com.prog34.Shorty;
 import com.prog34.lib.messageservice.MessageService;
 import com.prog34.places.AreaAroundHangar;
+import java.util.ArrayList;
 
 
 public class AreaAroundHangar extends Place {
@@ -13,11 +14,11 @@ public class AreaAroundHangar extends Place {
     this.hangar = hangar;
   }
 
-  public void clearPlaceBy(Shorty[] shorties) {
+  public void clearPlaceBy(ArrayList<Shorty> shorties) {
     for (Shorty shorty: shorties) {
       MessageService.showMessageWithNewLineEnding(shorty.getName() + " трудится в поте лица...");
-      hangar.clear();
     }
+    hangar.clear();
   }
 
 }

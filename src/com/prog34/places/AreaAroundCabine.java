@@ -26,4 +26,8 @@ public class AreaAroundCabine extends Place {
         MessageService.showMessageWithNewLineEnding(shorty.getName() + " пробует открыть дверь");
         this.openingButton.push();
     }
+
+    public LockChamberDoor getDoor() {
+      return door;
+    }
 }

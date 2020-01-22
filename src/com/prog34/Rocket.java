@@ -47,7 +47,7 @@ public class Rocket extends OutputInteractionElement<RocketPosition> implements 
 
     public ArrayList<Illuminator> getIlluminators() {
       return cabine.getIlluminators();
-  }
+    }
 
     public AreaAroundCabine getAreaAroundCabine() {
       return areaAroundCabine;
