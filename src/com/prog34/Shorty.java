@@ -1,5 +1,6 @@
 package com.prog34;
 
+import com.prog34.exceptions.EntryNotInPlaceException;
 import com.prog34.lib.messageservice.MessageService;
 import com.prog34.places.Place;
 import com.prog34.entries.Entry;
@@ -39,7 +40,7 @@ public class Shorty {
         MessageService.showMessageWithNewLineEnding(name + " падает на " + surface.getName());
     }
 
-    public void goToPlace(Entry entry) {
+    public void goToPlace(Entry entry) throws EntryNotInPlaceException {
 
         Place destination = (entry.getPlace1() == currentPlace) ? entry.getPlace2() : entry.getPlace1();
         Place departure = (entry.getPlace1() == destination) ? entry.getPlace2() : entry.getPlace1();
@@ -54,7 +55,7 @@ public class Shorty {
                 MessageService.showMessageWithNewLineEnding(name + " пытается перейти в локацию " + destination.getName() + ", но проход заблокирован :(");
             }
         } else {
-            MessageService.showMessageWithNewLineEnding("Переход невозможен :(");
+            throw new EntryNotInPlaceException();
         }
     }
 
