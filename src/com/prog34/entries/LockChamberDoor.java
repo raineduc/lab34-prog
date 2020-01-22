@@ -12,10 +12,10 @@ public class LockChamberDoor extends Entry implements InputInteractionElement<To
 
   public void react(ToggleState state) {
     if (state == ToggleState.ON) {
-      MessageService.showMessage("Дверь открыта");
+      MessageService.showMessage("Дверь открыта ");
       this.open();
     } else {
-      MessageService.showMessage("Дверь закрыта");
+      MessageService.showMessage("Дверь закрыта ");
       this.close();
     }
   }

@@ -1,8 +1,12 @@
 package com.prog34;
 
 import com.prog34.entries.HouseDoor;
+import com.prog34.entries.Illuminator;
+import com.prog34.entries.LockChamberDoor;
 import com.prog34.places.*;
 import com.prog34.entries.Entry;
+
+import java.util.ArrayList;
 
 public class World {
     public DayPhase dayPhase = DayPhase.NIGHT;
@@ -32,9 +36,9 @@ public class World {
         Shorty fuxy = new Shorty("Фуксия", outside);
         Shorty seld = new Shorty("Селедочка", outside);
         ShortyEngineer clep = new ShortyEngineer("Клепка", outside);
-        Shorty[] shorties = new Shorty[7];
-        shorties[0] = zvezdochkin;
-        shorties[1] = znaika;
+        ArrayList<Shorty> shorties = new ArrayList<>();
+        shorties.add(zvezdochkin);
+        shorties.add(znaika);
 
         Cover blanket = new Blanket("одеяло");
         // Поместить как-то одеяло в комнату (дом)
@@ -45,12 +49,15 @@ public class World {
         clep.injure("из-за взрыва ракеты");
         // Звездочкин оказывается на полу
         znaika.takeCover(blanket); // Знайка укутывается в одеяло
+        houseDoor.openBy(znaika);
         znaika.goToPlace(houseDoor); // Реализовать перемещение через энтрипоинты между плэйсами
         znaika.lookAt(hangar);
 
         YardAreaAroundCabineTransition yardAreaAroundCabineTransition = new YardAreaAroundCabineTransition(yard, hangar.getAreaAroundHangar());
-        OutsideAreaAroundCabineTransition outsideTransition = new OutsideAreaAroundCabineTransition(outside, hangar.getAreaAroundHangar());
+        OutsideAreaAroundAngarTransition outsideTransition = new OutsideAreaAroundAngarTransition(outside, hangar.getAreaAroundHangar());
         AreasAroundHangarAndCabineTransition areasTransition = new AreasAroundHangarAndCabineTransition(hangar.getAreaAroundHangar(), rocket.getAreaAroundCabine());
+
+        zvezdochkin.goToPlace(houseDoor);
 
         znaika.goToPlace(yardAreaAroundCabineTransition);
 
@@ -61,11 +68,8 @@ public class World {
         zvezdochkin.lookAt(hangar);
         znaika.lookAt(hangar);
 
-
-
-
-        shorties[2] = fuxy;
-        shorties[3] = seld;
+        shorties.add(fuxy);
+        shorties.add(seld);
         fuxy.goToPlace(outsideTransition);
         seld.goToPlace(outsideTransition);
 
@@ -80,11 +84,28 @@ public class World {
 
         clep.heal();
         clep.goToPlace(outsideTransition);
+        clep.goToPlace(areasTransition);
 
-        clep.goToPlace(rocket.getIlluminators().get(0));
+        Illuminator illum0 = rocket.getIlluminators().get(0);
+
+        clep.goToPlace(illum0);
         rocket.getCabine().fixMotorByEngineer(clep);
-        clep.goToPlace(rocket.getIlluminators().get(0));
+        clep.goToPlace(illum0);
         rocket.getAreaAroundCabine().openLockChamberDoorBy(clep);
+
+        zvezdochkin.goToPlace(areasTransition);
+        znaika.goToPlace(areasTransition);
+
+        LockChamberDoor door = rocket.getAreaAroundCabine().getDoor();
+
+        for (Shorty anotherShorty: shorties) {
+            anotherShorty.goToPlace(door);
+            Spacesuit spacesuit = rocket.getCabine().takeSpacesuitByShorty(anotherShorty);
+            anotherShorty.goToPlace(door);
+
+            anotherShorty.dropCargo();
+            spacesuit.checkByShorty(anotherShorty);
+        }
     }
 
     class YardAreaAroundCabineTransition extends Entry {
@@ -94,8 +115,8 @@ public class World {
             area.addEntry(this);
         }
     }
-    class OutsideAreaAroundCabineTransition extends Entry {
-        public OutsideAreaAroundCabineTransition(Outside outside, AreaAroundHangar area) {
+    class OutsideAreaAroundAngarTransition extends Entry {
+        public OutsideAreaAroundAngarTransition(Outside outside, AreaAroundHangar area) {
             super("Из вечной мерзлоты к ангару", true, outside, area);
             outside.addEntry(this);
             area.addEntry(this);
