@@ -28,6 +28,10 @@ public class RocketCabine extends Place {
         }
     }
 
+    public ArrayList<Illuminator> getIlluminators() {
+        return illuminators;
+    }
+
     public void brokeIlluminators() {
         for (int i = 0; i < 4; i++)
             illuminators.get(i).broke();
