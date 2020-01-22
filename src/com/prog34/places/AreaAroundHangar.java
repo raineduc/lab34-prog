@@ -3,8 +3,8 @@ import com.prog34.Hangar;
 import com.prog34.Shorty;
 import com.prog34.lib.messageservice.MessageService;
 import com.prog34.places.AreaAroundHangar;
-
 import java.util.ArrayList;
+
 
 public class AreaAroundHangar extends Place {
   protected Hangar hangar;
@@ -20,4 +20,5 @@ public class AreaAroundHangar extends Place {
     }
     hangar.clear();
   }
+
 }
