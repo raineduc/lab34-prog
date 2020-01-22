@@ -1,5 +1,7 @@
 package com.prog34.lib.observer;
 
+import com.prog34.lib.messageservice.MessageService;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -20,8 +22,12 @@ public class EventManager<T> {
   public void notify(Enum type, T data) {
     ArrayList<EventListener<T>> listenersArray = listeners.get(type);
 
-    for (EventListener<T> listener: listenersArray) {
-      listener.update(data);
+    try {
+      for (EventListener<T> listener : listenersArray) {
+        listener.update(data);
+      }
+    } catch (NullPointerException e) {
+      MessageService.showMessageWithNewLineEnding(e.getMessage());
     }
   }
 }

@@ -22,8 +22,15 @@ public class Shorty {
     }
 
     public void heal() {
-        if (health == HealthStatus.INJURED)
+        if (health == HealthStatus.INJURED) {
             health = HealthStatus.UNHARMED;
+            MessageService.showMessageWithNewLineEnding(name + " оправился");
+        }
+    }
+
+    public void injure(String reason) {
+        MessageService.showMessageWithNewLineEnding(name + " ранен из-за " + reason);
+        health = HealthStatus.INJURED;
     }
 
     public void sleepIn(Place place) {
@@ -58,6 +65,10 @@ public class Shorty {
     public void takeCover(Cover cover) {
         this.cover = cover;
         MessageService.showMessageWithNewLineEnding(this.name + " закутался в " + cover.getCoverName());
+    }
+
+    public Place getCurrentPlace() {
+        return currentPlace;
     }
 
     public String getName() {

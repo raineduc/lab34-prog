@@ -13,8 +13,16 @@ public class Hangar implements Visibility, InputInteractionElement<RocketPositio
     MessageService.showMessageWithNewLineEnding("Взорвался ангар!");
   }
 
+  public void putOut() {
+    if (this.state == HangarState.BURNING) {
+      this.state = HangarState.CRASHED;
+    }
+  }
+
   public void clear() {
     this.state = HangarState.CLEARED;
+    MessageService.showMessageWithNewLineEnding("Наконец место расчищено!");
+
   }
 
   @Override

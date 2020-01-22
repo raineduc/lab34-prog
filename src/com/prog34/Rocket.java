@@ -1,12 +1,15 @@
 package com.prog34;
 
 import com.prog34.ShortyEngineer;
+import com.prog34.entries.Illuminator;
 import com.prog34.entries.LockChamberDoor;
 import com.prog34.interactions.OutputInteractionElement;
 import com.prog34.lib.messageservice.MessageService;
 import com.prog34.places.AreaAroundCabine;
 import com.prog34.places.LockChamber;
 import com.prog34.places.RocketCabine;
+
+import java.util.ArrayList;
 
 public class Rocket extends OutputInteractionElement<RocketPosition> implements Visibility {
     private RocketTail tail = new RocketTail();
@@ -42,7 +45,14 @@ public class Rocket extends OutputInteractionElement<RocketPosition> implements 
         return (this.position == RocketPosition.FLIPPED) ? "ракету, перевернутую набок" : "ракету";
     }
 
+    public ArrayList<Illuminator> getIlluminators() {
+      return cabine.getIlluminators();
+  }
+
     public AreaAroundCabine getAreaAroundCabine() {
       return areaAroundCabine;
+    }
+    public RocketCabine getCabine() {
+      return cabine;
     }
 }

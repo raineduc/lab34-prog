@@ -22,14 +22,17 @@ public class ElectricMotor extends DuplexInteractionElement<ToggleState, ToggleS
     if (this.state == ElectricMotorState.NOT_WORK) {
       this.stateMessage = "Мотор не работает";
       this.notify(ToggleState.OFF);
+      MessageService.showMessageWithNewLineEnding("Мотор не работает");
     }
     else {
       if (state == ToggleState.ON) {
         this.state = ElectricMotorState.RUNNING;
         this.notify(ToggleState.ON);
+        MessageService.showMessageWithNewLineEnding("Мотор в действии");
       } else {
         this.state = ElectricMotorState.STOPPED;
         this.notify(ToggleState.OFF);
+        MessageService.showMessageWithNewLineEnding("Мотор остановлен");
       }
     }
   }
