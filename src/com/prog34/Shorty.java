@@ -29,6 +29,7 @@ public class Shorty {
     }
 
     public void goToPlace(Entry entry) {
+
         Place destination = (entry.getPlace1() == currentPlace) ? entry.getPlace1() : entry.getPlace2();
         Place departure = (entry.getPlace1() == destination) ? entry.getPlace2() : entry.getPlace1();
         if (currentPlace.getEntries().contains(entry)) {
@@ -36,10 +37,10 @@ public class Shorty {
                 this.currentPlace = destination;
                 MessageService.showMessageWithNewLineEnding(name + " переходит в локацию " + destination.getName());
             } else {
-                MessageService.showMessageWithNewLineEnding("Переход невозможен :(");
+                MessageService.showMessageWithNewLineEnding(name + " пытается перейти в локацию " + currentPlace.getName() + ", но проход заблокирован :(");
             }
         } else {
-            MessageService.showMessageWithNewLineEnding(name + " пытается перейти в локацию " + destination.getName() + ", но проход заблокирован :(");
+            MessageService.showMessageWithNewLineEnding("Переход невозможен :(");
         }
     }
 
